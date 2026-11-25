@@ -23,7 +23,7 @@ Render a different composition locally with `python3 main.py out.png B`
 4. **WHO flees Ebola hospital in Congo.** Health workers were evacuated from a hospital in Akwe, Ituri, after three days sheltering from fierce fighting. The Ebola outbreak has killed 5,775 people.
 5. **NATO jets for Poland after missiles.** The alliance plans to deploy early-warning aircraft in Poland after reports of missiles landing there during an attack on Ukraine.
 
-Also today: a 5.6 quake in Nepal's Koshi province, new Trump tariffs due after a capacity probe, Microsoft's "Code Red" after a historic outage, England levelling the T20 series in Australia, and the pardoning of Thanksgiving turkeys Freedom and Feathers.
+Also today: a 5.6 quake in Nepal's Koshi province, new Trump tariffs due after a capacity probe, and Microsoft's "Code Red" after a historic outage.
 
 Bounty: https://make.fun/bounty/news-image-20261125
 

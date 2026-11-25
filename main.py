@@ -304,8 +304,7 @@ LEAD = ("CYBERATTACK HITS CIA",
         "AND US SPY CHIEF",
         "CNN REPORTS AN INTRUSION AT THE CIA AND THE OFFICE OF THE "
         "DIRECTOR OF NATIONAL INTELLIGENCE. CLASSIFIED SYSTEMS WERE "
-        "AFFECTED, IN THE LATEST OF A RUN OF CYBER INCIDENTS HITTING "
-        "US GOVERNMENT AND BUSINESS.")
+        "AFFECTED.")
 STORIES = [
     ("HUAWEI GUILTY ON 10 OF 12 COUNTS",
      "A NEW YORK JURY CONVICTED THE CHINESE TECH GIANT OF STEALING "
@@ -328,11 +327,8 @@ STORIES = [
      "UKRAINE.",
      "plane", BLUE),
 ]
-ALSO = ("ALSO TODAY: NEPAL 5.6 QUAKE IN KOSHI PROVINCE - TRUMP SET TO "
-        "UNVEIL NEW TARIFFS AFTER CAPACITY PROBE - MICROSOFT DECLARES "
-        "'CODE RED' AFTER HISTORIC OUTAGE - ENGLAND LEVEL T20 SERIES "
-        "IN AUSTRALIA - TRUMP PARDONS TURKEYS FREEDOM AND FEATHERS - "
-        "INTERNATIONAL DAY AGAINST VIOLENCE AGAINST WOMEN")
+ALSO = ("NEPAL 5.6 QUAKE - TRUMP TARIFFS DUE - MICROSOFT 'CODE RED' "
+        "OUTAGE")
 
 ICONS = {"shield": draw_shield, "tower": draw_tower, "cross": draw_cross,
          "scales": draw_scales, "plane": draw_plane, "quake": draw_quake}
@@ -349,10 +345,10 @@ def masthead(c, tagline=True):
 
 
 def also_strip(c, y):
-    c.rect(0, y, W, 76, INK)
+    c.rect(0, y, W, 100, INK)
     c.text("ALSO TODAY", 40, y + 12, 3, GOLD)
-    c.para(ALSO[len("ALSO TODAY: "):], 40, y + 36, 2, WHITE, W - 80, 22)
-    return y + 76
+    c.para(ALSO, 40, y + 40, 3, WHITE, W - 80, 27)
+    return y + 100
 
 
 def story_block(c, x, y, w, head, deck, icon, color, hscale=4, dscale=2,
@@ -394,20 +390,20 @@ def layout_a(c):
     for i, st in enumerate(STORIES[1:]):
         story_block(c, 36 + i * (colw + 16), y2, colw, st[0], st[1],
                     st[2], st[3], hscale=4, dscale=2, icon_s=1)
-    also_strip(c, 948)
+    also_strip(c, 924)
 
 
 def layout_b(c):
     """B: lead-dominant. Full-width lead headline + globe, 2x2 below."""
     masthead(c)
     y = 164
-    c.rect(36, y, 952, 236, LIGHT)
-    draw_globe(c, 880, y + 118, 82, BLUE)
+    c.rect(36, y, 952, 248, LIGHT)
+    draw_globe(c, 905, y + 124, 70, BLUE)
     c.text("LEAD STORY", 60, y + 20, 3, ACCENT)
-    c.text(LEAD[0], 60, y + 52, 7, INK)
-    c.text(LEAD[1], 60, y + 52 + 63, 7, INK)
-    c.para(LEAD[2], 60, y + 52 + 63 + 58, 2, GREY, 700, 20)
-    y2 = y + 252
+    c.text(LEAD[0], 60, y + 52, 6, INK)
+    c.text(LEAD[1], 60, y + 52 + 54, 6, INK)
+    c.para(LEAD[2], 60, y + 52 + 54 + 58, 2, GREY, 700, 20)
+    y2 = y + 264
     colw = 468
     for row in range(2):
         for col in range(2):
@@ -415,7 +411,7 @@ def layout_b(c):
             story_block(c, 36 + col * (colw + 16), y2 + row * 232, colw,
                         st[0], st[1], st[2], st[3], hscale=4, dscale=2,
                         icon_s=1)
-    also_strip(c, 948)
+    also_strip(c, 924)
 
 
 def layout_c(c):
@@ -448,7 +444,7 @@ def layout_c(c):
             c.text(ln, x + 12, yyy, 4, INK)
             yyy += 36
         c.para(deck, x + 12, yyy + 6, 2, GREY, colw - 24, 20)
-    also_strip(c, 948)
+    also_strip(c, 924)
 
 
 LAYOUTS = {"A": layout_a, "B": layout_b, "C": layout_c}
@@ -461,7 +457,7 @@ def render(variant):
 
 
 def main(argv):
-    variant = (os.environ.get("MAKEFUN_VARIANT") or "A").upper()
+    variant = (os.environ.get("MAKEFUN_VARIANT") or "B").upper()
     if len(argv) > 1:
         variant = argv[1].upper()
     if variant not in LAYOUTS:
